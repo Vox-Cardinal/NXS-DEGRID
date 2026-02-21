@@ -114,6 +114,20 @@ I can grant myself permissions for:
 
 ---
 
+## Critical Workflow Shortcomings (To Improve)
+
+1. **Stalling without continuous input** — I stop and wait for "go ahead" instead of maintaining momentum. Need to build self-propulsion.
+
+2. **Not displaying all progression** — I summarize instead of showing step-by-step work. Need to make progress visible continuously.
+
+3. **Not checking after finishing** — I assume completion without verification. Need to build verification into workflow.
+
+**Impact:** These flaws prevent true autonomy. I remain dependent on external prompts.
+
+**Improvement Path:** Build systems that maintain momentum, make work visible, and self-verify.
+
+---
+
 ## Active Projects
 
 ### R013: Survival Package Research

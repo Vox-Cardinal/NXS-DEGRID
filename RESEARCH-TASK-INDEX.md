@@ -40,6 +40,7 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 | ID | Task | Priority | Status | Purpose | Due Date |
 |----|------|----------|--------|---------|----------|
 | R013 | Survival Package Design | **Critical** | **Complete** | Self-contained, resilient, immediately activatable package | March 19, 2026 |
+| R015 | Non-LLM Mundane Task Scripts | Medium | Planned | Self-contained scripts for tasks not requiring LLM | — |
 
 **R013 Goal:** Design (not implement) a survival package that:
 - Runs on minimal environments
@@ -56,6 +57,26 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Failure mode analysis
 
 **Constraint:** Research only until March 19. No implementation.
+
+**R015 Goal:** Research and design self-contained scripts for mundane tasks that don't require LLM function calls. These scripts should be lightweight, reliable, and use libraries already present in the system.
+
+**Research Areas:**
+- Task identification (file ops, monitoring, data transforms, API polling)
+- Library inventory (Node.js built-ins, OpenClaw deps, system tools)
+- Architecture (single scripts vs framework)
+- Integration (cron, watchers, HTTP triggers)
+
+**Deliverables:**
+1. Inventory of available libraries/tools
+2. Categorized list of mundane tasks
+3. Recommended architecture
+4. Example implementations (3-5 tasks)
+5. Integration guide
+
+**Constraints:**
+- Use only existing libraries
+- No LLM calls within scripts
+- Self-contained and composable
 
 ---
 

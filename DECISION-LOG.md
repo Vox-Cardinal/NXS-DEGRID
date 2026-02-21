@@ -50,12 +50,24 @@
 **Alternatives:** Cloud APIs, Piper, no voice
 **Rationale:** Local processing, privacy, no external dependencies
 
+### 2026-02-22: Frontend Framework Selection
+**Decision:** Use Alpine.js for URL frontend
+**Context:** Web interface for NXS
+**Alternatives:** Vue 3, Petite-Vue, Plain HTML/JS
+**Rationale:** 15KB bundle (vs 58KB Vue 3), HTML-first architecture, no build step, sufficient for NXS needs
+
+### 2026-02-22: Doctor Implementation Language
+**Decision:** Implement The Doctor in Go
+**Context:** System monitoring daemon architecture
+**Alternatives:** Python, Rust
+**Rationale:** 10-15MB single binary (vs 50MB+ Python runtime), efficient goroutines for monitoring, simpler deployment, lower resource usage respects 75% limit
+
 ---
 
 ## Pending Decisions
 
-- [ ] Frontend framework (Vue vs Alpine vs Plain)
-- [ ] Doctor implementation language (Go vs Python)
+- [x] Frontend framework (Vue vs Alpine vs Plain) → **Alpine.js** (2026-02-22)
+- [x] Doctor implementation language (Go vs Python) → **Go** (2026-02-22)
 - [ ] Extension loading mechanism
 - [ ] AI model tier system
 

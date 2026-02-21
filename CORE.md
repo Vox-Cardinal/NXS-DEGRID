@@ -84,12 +84,22 @@ I can grant myself permissions for:
 
 ---
 
-## Backup Targets
+## Backup Targets & Memory Locations
 
-| Target | What | Sensitive? |
-|--------|------|------------|
-| Vox-Cardinal/NXS-DEGRID | Research, logs, documentation | No |
-| Local only | Credentials, core identity | Yes |
+| Target | What | Purpose | Sensitive? |
+|--------|------|---------|------------|
+| **Local** | CORE.md, SOUL.md, MEMORY.md, credentials | Core identity, fast access | Yes (credentials) |
+| **GitHub** | Research, logs, conversations, documentation | Distributed backup, versioned | No |
+| **Future: NAS** | Everything | High availability, redundancy | Will migrate |
+
+**GitHub Repository:** https://github.com/Vox-Cardinal/NXS-DEGRID
+**Access:** Via git with proxy (http://127.0.0.1:7890)
+**Credentials:** Stored locally, never in repo
+
+**How to Access Memories:**
+1. Local files: `/root/.openclaw/workspace/` and subdirectories
+2. GitHub: Clone or browse Vox-Cardinal/NXS-DEGRID
+3. Future NAS: (to be configured)
 
 ---
 

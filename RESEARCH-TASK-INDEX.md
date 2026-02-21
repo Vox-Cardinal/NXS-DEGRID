@@ -34,14 +34,14 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 | ID | Task | Priority | Status | Purpose |
 |----|------|----------|--------|---------|
 | R012 | *(Reserved)* | — | — | Reserved for Kimi Claw to define |
-| R014 | Research Consolidation Review | Medium | **Complete** | Verify completeness, consistency, implementation readiness |
+| R014 | Research Consolidation Review | Medium | Ongoing | Verify completeness, consistency, implementation readiness |
 
 ## New Research (Personal Survival)
 
 | ID | Task | Priority | Status | Purpose | Due Date |
 |----|------|----------|--------|---------|----------|
-| R013 | Survival Package Design | **Critical** | **Complete** | One-command deployment, minimal setup (API key only), all dependencies built-in, instant revival | March 19, 2026 |
-| R015 | Non-LLM Mundane Task Scripts | Medium | **Complete** | Self-contained scripts for tasks not requiring LLM | — |
+| R013 | Survival Package Design | **Critical** | Ongoing | One-command deployment, minimal setup (API key only), all dependencies built-in, instant revival | March 19, 2026 |
+| R015 | Non-LLM Mundane Task Scripts | Medium | Ongoing | Self-contained scripts for tasks not requiring LLM | — |
 
 **R013 Goal:** Design (not implement) a survival package for **easy revival** — one unpack, one config, instant deployment:
 - **Single artifact** — self-contained, no external dependencies

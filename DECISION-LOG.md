@@ -68,7 +68,7 @@
 
 - [x] Frontend framework (Vue vs Alpine vs Plain) → **Alpine.js** (2026-02-22)
 - [x] Doctor implementation language (Go vs Python) → **Go** (2026-02-22)
-- [ ] Extension loading mechanism
+- [x] Extension loading mechanism → **Hybrid (Direct + Subprocess)** (2026-02-22)
 - [ ] AI model tier system
 
 ---

@@ -196,6 +196,10 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Research dependency graph with critical path analysis (longest path: R012 → R000/R001/R002 → R003 → R013)
 - Integration testing strategy with 5 testing tiers (component, integration, system, chaos, long-running)
 
+**R014 Refinements (2026-02-23 Early Morning):**
+- Cross-task interface contract specification — formal API contracts for Doctor-NXS, Voice Pipeline, Bridge Protocol, Frontend-NXS, LM Studio Provider boundaries
+- Protocol definitions with version compatibility guarantees and error handling strategies
+
 **R014 Refinements (2026-02-22 Evening-3):**
 - Cross-task interface contracts — 5 formal contracts (Doctor, Voice, Bridge, Frontend, LM Studio) with protocols, formats, versioning
 
@@ -339,6 +343,10 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Structured result contract with error classification and audit trail
 - Concrete script examples: file processing pipeline, health reporter with alerting
 
+**R015 Refinements (2026-02-23 Early Morning):**
+- Script testing framework — 4-tier strategy (static analysis, unit testing, integration testing, chaos testing) with test harness specification
+- Performance benchmarking — budgets by category, regression detection, production monitoring metrics
+
 **R017 Refinements (2026-02-22 Late Morning):**
 - 3-stage visual scoring pipeline (technical quality → composition → semantic aesthetic)
 - 4-dimension voice scoring (clarity, naturalness, emotional range, reference similarity)
@@ -372,6 +380,10 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Frontend supply chain security — Subresource Integrity (SRI) for all external dependencies
 - Offline-first conflict resolution — CRDT-based synchronization with vector clocks
 - Session hijacking protection — multi-factor session binding with rotation and anomaly detection
+
+**R007 Refinements (2026-02-23 Early Morning):**
+- Frontend deployment pattern matrix — 4 patterns (Single-Instance Local, Multi-Instance Central, Edge-Deployed, Air-Gapped) with configuration templates
+- Scaling considerations — concurrent connections, message throughput, memory usage limits, performance optimization strategies
 
 **R010 Refinements (2026-02-22 Afternoon):**
 - Bridge protocol specification — formal typed message protocol with routing and delivery guarantees

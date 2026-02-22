@@ -631,9 +631,143 @@
 
 ---
 
+## R010 Refinements (2026-02-22 Evening)
+
+### Bridge Serialization Strategy
+**Decision:** Hybrid serialization (JSON/MessagePack/Protobuf) with payload-size tiering and zstd compression
+**Context:** R010 cross-instance message efficiency
+**Alternatives:** JSON only, Protobuf only, MessagePack only
+**Rationale:** 30-70% bandwidth savings; human-readable for debugging; maximum efficiency for bulk; compression for large payloads
+
+### Credit-Based Flow Control
+**Decision:** Credit-based backpressure with per-peer memory limits and priority-based dropping
+**Context:** R010 preventing producer overwhelm of slow consumers
+**Alternatives:** TCP backpressure only, unbounded queues, fixed rate limiting
+**Rationale:** Explicit flow control prevents memory exhaustion; graceful degradation under load; priority preservation for critical messages
+
+### Protocol Version Negotiation
+**Decision:** Handshake-based version selection with 3-major-version compatibility window
+**Context:** R010 evolving protocol without breaking existing instances
+**Alternatives:** Fixed protocol forever, forced upgrades, no compatibility
+**Rationale:** Rolling upgrades possible; mixed-version fleets work; clear deprecation path
+
+---
+
+## R011 Refinements (2026-02-22 Evening)
+
+### Dynamic Quantization Selection
+**Decision:** Context-aware quantization switching (FP16→Q8_0→Q5_K_M→Q4_K_M) with quality monitoring
+**Context:** R011 balancing quality vs resource usage for local LLM
+**Alternatives:** Fixed quantization, always FP16, user selection only
+**Rationale:** Optimal quality for each request; automatic fallback on resource pressure; quality tracking enables continuous improvement
+
+### Sliding Context Window
+**Decision:** Sliding window with incremental summarization for conversations exceeding model context
+**Context:** R011 handling long conversations within fixed context limits
+**Alternatives:** Hard truncation, no summarization, full context cloud fallback
+**Rationale:** Preserves conversation continuity; intelligent compression; never loses critical information
+
+### Model Pool Load Balancing
+**Decision:** Queue-depth-based routing with HOT/WARM/COLD tiers and preemptive loading
+**Context:** R011 managing multiple models in single LM Studio instance
+**Alternatives:** Random selection, manual assignment, single model only
+**Rationale:** Optimal latency; efficient VRAM utilization; predictive loading reduces wait time
+
+---
+
+## R014 Refinements (2026-02-22 Evening)
+
+### Research Handoff Criteria
+**Decision:** 35-point checklist with 90% pass threshold for research-to-implementation transition
+**Context:** R014 ensuring research completeness before building
+**Alternatives:** Subjective judgment, no formal criteria, binary ready/not-ready
+**Rationale:** Objective quality gate; explicit deferred items; clear accountability
+
+### Risk Assessment Matrix
+**Decision:** 4×4 likelihood×impact matrix with score-based response (accept/mitigate/avoid)
+**Context:** R014 systematic risk identification and management
+**Alternatives:** No risk tracking, qualitative only, all risks treated equally
+**Rationale:** Prioritizes limited attention; appropriate response per risk level; documented mitigation plans
+
+### Dependency Conflict Resolution
+**Decision:** Automated conflict detection with 4-category taxonomy and architect escalation
+**Context:** R014 resolving conflicts between research task requirements
+**Alternatives:** Ignore conflicts, first-come-first-served, no parallel research
+**Rationale:** Early detection prevents integration issues; clear resolution process; maintains system coherence
+
+---
+
 ## See Also
 - [NXS Development Guide](../NXS-DEV-GUIDE.md) - Requirements and goals
 - [Technology Matrix](../TECHNOLOGY-MATRIX.md) - Options we evaluated
 - [Integration Patterns](../INTEGRATION-PATTERNS.md) - How decisions are implemented
 
 *Decisions are final unless marked [REVISIT]*
+
+*Last updated: 2026-02-22 Evening*
+
+---
+
+## R008 Refinements (2026-02-22 Evening)
+
+### Tailscale Subnet Router Configuration
+**Decision:** Do NOT use `--accept-routes` on standby subnet routers to prevent routing loops
+**Context:** R008 high availability subnet router setup
+**Alternatives:** Enable on all routers, use different routes
+**Rationale:** Standby with `--accept-routes` sends traffic through primary instead of directly; creates inefficient routing
+
+### Tailscale Regional Routing Mode
+**Decision:** Use default in-region load balancing for small deployments, consider in-region failover for large deployments
+**Context:** R008 optimizing traffic distribution within regions
+**Alternatives:** Always load balance, always failover, no preference
+**Rationale:** Load balancing provides automatic distribution; failover provides predictability for debugging
+
+### DERP Region Selection
+**Decision:** Deploy in 3 regions: ap-south (Singapore) or ap-northeast (Tokyo) for APAC, eu-central for EU, us-east or us-west for Americas
+**Context:** R008 global latency optimization
+**Alternatives:** Single region, 2 regions, more than 3 regions
+**Rationale:** 3 regions cover major population centers; regional routing directs clients to nearest automatically
+
+---
+
+## R013 Refinements (2026-02-22 Evening)
+
+### Survival Package Format
+**Decision:** Self-extracting archive (.nxs) with shell header, JSON manifest, Ed25519 signature, zstd-compressed payload
+**Context:** R013 package structure design
+**Alternatives:** AppImage, static binary, tarball, Docker image
+**Rationale:** Single-file deployment; cross-platform; signature verification; efficient compression
+
+### Bundle Tier Strategy
+**Decision:** Three bundle variants: MINIMAL (25-35MB), STANDARD (75-100MB), FULL (250-400MB)
+**Context:** R013 balancing download size vs functionality
+**Alternatives:** Single bundle, more tiers, on-demand only
+**Rationale:** Users choose based on constraints; minimal for quick recovery; full for air-gapped
+
+### Bootstrap State Management
+**Decision:** 8-state bootstrap machine with explicit transitions: START → VERIFYING → DETECTING → (UPGRADE|FRESH) → CONFIGURING → VALIDATING → RUNNING
+**Context:** R013 reliable deployment process
+**Alternatives:** Linear script, fewer states, no state tracking
+**Rationale:** Clear error handling at each stage; supports both fresh install and upgrade; restart resilience
+
+---
+
+## R014 Refinements (2026-02-22 Evening)
+
+### Implementation Timeline
+**Decision:** 14-week implementation schedule (March 19 - July 2, 2026) with risk buffers
+**Context:** R014 planning transition from research to implementation
+**Alternatives:** 12 weeks no buffer, 16 weeks conservative, no fixed timeline
+**Rationale:** Realistic schedule with 50% buffer for high-risk items; clear milestones; July 9 target release
+
+### Sub-Agent Allocation Strategy
+**Decision:** Rotate 2 sub-agents across parallel work streams with documented handoff protocol
+**Context:** R014 maximizing parallel progress within constraints
+**Alternatives:** Single-threaded, unlimited sub-agents, fixed assignment
+**Rationale:** Efficient resource use; parallel work where dependencies allow; clear handoff via memory files
+
+### Risk-Adjusted Scheduling
+**Decision:** Add 50% buffer for high-risk items (voice, bridge, survival package), 25% for medium-risk
+**Context:** R014 realistic project planning
+**Alternatives:** No buffers, uniform buffer, pad everything
+**Rationale:** High-risk items get more contingency; go/no-go decision gates at phase boundaries

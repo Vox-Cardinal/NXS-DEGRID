@@ -1,0 +1,171 @@
+=== Health Check: 2026-02-22 04:32:42 CST ===
+
+--- Gateway Status ---
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.feishu: plugin feishu: duplicate plugin id detected;  │
+│    later plugin may be overridden                                        │
+│    (/usr/lib/node_modules/openclaw/extensions/feishu/index.ts)           │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+Service: systemd (enabled)
+File logs: /tmp/openclaw/openclaw-2026-02-22.log
+Command: /usr/bin/node /usr/lib/node_modules/openclaw/dist/index.js gateway --port 18789
+Service file: ~/.config/systemd/user/openclaw-gateway.service
+Service env: OPENCLAW_GATEWAY_PORT=18789
+
+Config (cli): ~/.openclaw/openclaw.json
+Config (service): ~/.openclaw/openclaw.json
+
+Gateway: bind=loopback (127.0.0.1), port=18789 (service args)
+Probe target: ws://127.0.0.1:18789
+Dashboard: http://127.0.0.1:18789/
+Probe note: Loopback-only gateway; only local clients can connect.
+
+Runtime: running (pid 106088, state active, sub running, last exit 0, reason 0)
+RPC probe: ok
+
+Listening: 127.0.0.1:18789
+Troubles: run openclaw status
+Troubleshooting: https://docs.openclaw.ai/troubleshooting
+
+--- Proxy (mihomo) Status ---
+Proxy responding (HTTP 000 or available)
+
+--- Memory Usage ---
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       1.3Gi       392Mi       2.7Mi       2.5Gi       2.6Gi
+Swap:             0B          0B          0B
+
+RAM Usage: 33%
+RAM Status: OK (under 70%)
+
+--- Disk Usage ---
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda2        40G  9.5G   28G  26% /
+
+Disk Usage: 26%
+Disk Status: OK (under 80%)
+
+--- Zombie Processes ---
+Zombie processes: 0
+Zombie Status: OK (none found)
+
+=== Health Check Complete ===
+=== Health Check: 2026-02-22 05:32:45 CST ===
+
+--- Gateway Status ---
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.feishu: plugin feishu: duplicate plugin id detected;  │
+│    later plugin may be overridden                                        │
+│    (/usr/lib/node_modules/openclaw/extensions/feishu/index.ts)           │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+Service: systemd (enabled)
+File logs: /tmp/openclaw/openclaw-2026-02-22.log
+Command: /usr/bin/node /usr/lib/node_modules/openclaw/dist/index.js gateway --port 18789
+Service file: ~/.config/systemd/user/openclaw-gateway.service
+Service env: OPENCLAW_GATEWAY_PORT=18789
+
+Config (cli): ~/.openclaw/openclaw.json
+Config (service): ~/.openclaw/openclaw.json
+
+Gateway: bind=loopback (127.0.0.1), port=18789 (service args)
+Probe target: ws://127.0.0.1:18789
+Dashboard: http://127.0.0.1:18789/
+Probe note: Loopback-only gateway; only local clients can connect.
+
+Runtime: running (pid 106088, state active, sub running, last exit 0, reason 0)
+RPC probe: ok
+
+Listening: 127.0.0.1:18789
+Troubles: run openclaw status
+Troubleshooting: https://docs.openclaw.ai/troubleshooting
+
+--- Proxy (mihomo) Status ---
+Proxy responding
+
+--- Memory Usage ---
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       1.4Gi       291Mi       2.7Mi       2.5Gi       2.5Gi
+Swap:             0B          0B          0B
+
+RAM Usage: 35%
+RAM Status: OK (under 70%)
+
+--- Disk Usage ---
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda2        40G  9.5G   28G  26% /
+
+Disk Usage: 26%
+Disk Status: OK (under 80%)
+
+--- Zombie Processes ---
+Zombie processes: 0
+Zombie Status: OK (none found)
+
+=== Health Check Complete ===
+=== Health Check: 2026-02-22 06:32:42 CST ===
+
+--- Gateway Status ---
+Config warnings:\n- plugins.entries.feishu: plugin feishu: duplicate plugin id detected; later plugin may be overridden (/usr/lib/node_modules/openclaw/extensions/feishu/index.ts)
+│
+◇  Config warnings ────────────────────────────────────────────────────────╮
+│                                                                          │
+│  - plugins.entries.feishu: plugin feishu: duplicate plugin id detected;  │
+│    later plugin may be overridden                                        │
+│    (/usr/lib/node_modules/openclaw/extensions/feishu/index.ts)           │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+Config warnings:\n- plugins.entries.feishu: plugin feishu: duplicate plugin id detected; later plugin may be overridden (/usr/lib/node_modules/openclaw/extensions/feishu/index.ts)
+Config warnings:\n- plugins.entries.feishu: plugin feishu: duplicate plugin id detected; later plugin may be overridden (/usr/lib/node_modules/openclaw/extensions/feishu/index.ts)
+Config warnings:\n- plugins.entries.feishu: plugin feishu: duplicate plugin id detected; later plugin may be overridden (/usr/lib/node_modules/openclaw/extensions/feishu/index.ts)
+Service: systemd (enabled)
+File logs: /tmp/openclaw/openclaw-2026-02-22.log
+Command: /usr/bin/node /usr/lib/node_modules/openclaw/dist/index.js gateway --port 18789
+Service file: ~/.config/systemd/user/openclaw-gateway.service
+Service env: OPENCLAW_GATEWAY_PORT=18789
+
+Config (cli): ~/.openclaw/openclaw.json
+Config (service): ~/.openclaw/openclaw.json
+
+--- RAM ---
+RAM: 27%
+
+--- Disk ---
+Disk: 26%
+
+--- Zombies ---
+Zombies: 0
+
+=== Complete ===
+=== Health Check: 2026-02-22 07:32:37 CST ===
+
+--- System Status ---
+RAM: 25%
+Disk: 26%
+Zombies: 0
+
+--- Git Status ---
+Uncommitted files: 0
+
+=== Complete ===
+[2026-02-22 08:32:39] Health Check Started
+RAM: 1.0Gi/3.8Gi (26%)
+Disk: 9.7G/40G (26%)
+Zombie processes: 0
+Gateway status: 200
+Proxy status: 400
+Unpushed changes: 0
+[2026-02-22 08:32:39] Health Check Complete
+[2026-02-22 09:32:56] Health Check Started
+RAM: 1.0Gi/3.8Gi (26%)
+Disk: 9.8G/40G (27%)
+Zombie processes: 0
+Gateway status: 200
+Proxy status: 400
+Unpushed changes: 0
+[2026-02-22 09:32:56] Health Check Complete

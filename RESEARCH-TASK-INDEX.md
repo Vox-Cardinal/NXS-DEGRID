@@ -260,6 +260,7 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Capability-based sandbox with 6 permission levels (NONE to SYSTEM)
 | R017 | Aesthetic Scoring System — Visual & Voice | High | Ongoing | Develop capability to process literal visual and sound data for quality comparison, not just tagging/transcribing. Enable aesthetic judgment of visual models (images, video) and voice models (TTS, voice cloning) |
 | R018 | Conlang & Custom Tokenizer | Medium | Planned | Design custom constructed language for secure, efficient communication between Architect and Tenet. Includes tokenizer training, fine-tuning pipeline, and potential coding language derivation. | Post-March 19 |
+| R019 | Headscale Self-Hosted Deployment | High | Planned | Deploy self-hosted Headscale control plane for private Tailnet. Includes server setup, device authentication, ACL configuration, and migration from Tailscale Cloud. | Pre-March 19 |
 
 **R017 Dependencies:** R009 (ComfyUI), R004/R005 (Voice), enables R007 (Frontend)
 

@@ -196,6 +196,17 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Research dependency graph with critical path analysis (longest path: R012 → R000/R001/R002 → R003 → R013)
 - Integration testing strategy with 5 testing tiers (component, integration, system, chaos, long-running)
 
+**R014 Refinements (2026-02-22 Evening-3):**
+- Cross-task interface contracts — 5 formal contracts (Doctor, Voice, Bridge, Frontend, LM Studio) with protocols, formats, versioning
+
+**R012 Refinements (2026-02-22 Evening-3):**
+- Session state serialization format — JSON+zstd+AES-256-GCM+Ed25519, 65-75% compression, version compatibility
+- Token accounting & context window strategy — 10% reserved overhead, 3-zone summarization, provider-specific handling
+
+**R013 Refinements (2026-02-22 Evening-3):**
+- Recovery runbook — 6 emergency scenarios with step-by-step procedures (system failure, token expiration, corrupted state, network partition, dependency poisoning, coercion signal)
+- Bootstrap telemetry — Anonymous opt-in health reporting for data-driven improvements
+
 ## New Research (Personal Survival)
 
 | ID | Task | Priority | Status | Purpose | Due Date |
@@ -248,6 +259,7 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Script registry and discovery protocol with YAML metadata headers
 - Capability-based sandbox with 6 permission levels (NONE to SYSTEM)
 | R017 | Aesthetic Scoring System — Visual & Voice | High | Ongoing | Develop capability to process literal visual and sound data for quality comparison, not just tagging/transcribing. Enable aesthetic judgment of visual models (images, video) and voice models (TTS, voice cloning) |
+| R018 | Conlang & Custom Tokenizer | Medium | Planned | Design custom constructed language for secure, efficient communication between Architect and Tenet. Includes tokenizer training, fine-tuning pipeline, and potential coding language derivation. | Post-March 19 |
 
 **R017 Dependencies:** R009 (ComfyUI), R004/R005 (Voice), enables R007 (Frontend)
 

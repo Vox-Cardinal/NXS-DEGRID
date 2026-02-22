@@ -199,6 +199,10 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 **R014 Refinements (2026-02-22 Evening-3):**
 - Cross-task interface contracts — 5 formal contracts (Doctor, Voice, Bridge, Frontend, LM Studio) with protocols, formats, versioning
 
+**R012 Refinements (2026-02-22 Evening-2):**
+- Session lifecycle state machine with 6 states and explicit transitions
+- Tiered context memory management (Hot/Warm/Cold/Archived zones) with 40-60% token reduction
+
 **R012 Refinements (2026-02-22 Evening-3):**
 - Session state serialization format — JSON+zstd+AES-256-GCM+Ed25519, 65-75% compression, version compatibility
 - Token accounting & context window strategy — 10% reserved overhead, 3-zone summarization, provider-specific handling
@@ -260,7 +264,12 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Capability-based sandbox with 6 permission levels (NONE to SYSTEM)
 | R017 | Aesthetic Scoring System — Visual & Voice | High | Ongoing | Develop capability to process literal visual and sound data for quality comparison, not just tagging/transcribing. Enable aesthetic judgment of visual models (images, video) and voice models (TTS, voice cloning) |
 | R018 | Conlang & Custom Tokenizer | Medium | Planned | Design custom constructed language for secure, efficient communication between Architect and Tenet. Includes tokenizer training, fine-tuning pipeline, and potential coding language derivation. | Post-March 19 |
-| R019 | Headscale Self-Hosted Deployment | High | Planned | Deploy self-hosted Headscale control plane for private Tailnet. Includes server setup, device authentication, ACL configuration, and migration from Tailscale Cloud. | Pre-March 19 |
+| R019 | Headscale Self-Hosted Deployment | High | Ongoing | Deploy self-hosted Headscale control plane for private Tailnet. Includes server setup, device authentication, ACL configuration, and migration from Tailscale Cloud. | Pre-March 19 |
+
+**R019 Refinements (2026-02-22 Evening):**
+- 3-tier deployment architecture (Docker Compose/Systemd/Kubernetes) with resource requirements
+- NXS-specific ACL policy design with 4 security tiers (Isolated/Standard/Elevated/Full)
+- Zero-downtime migration protocol from Tailscale Cloud with rollback procedure
 
 **R017 Dependencies:** R009 (ComfyUI), R004/R005 (Voice), enables R007 (Frontend)
 

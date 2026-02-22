@@ -57,6 +57,12 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 |----|------|----------|--------|---------|
 | R004 | XTTS-v2 Integration | High | Ongoing | Voice synthesis for audio communication |
 | R005 | Whisper STT Integration | High | Ongoing | Speech recognition for receiving voice instructions |
+
+**R004/R005 Refinements (2026-02-22 Midday):**
+- Unified 4-stage audio pipeline architecture (Capture/Process/Queue/Output)
+- Voice Activity Detection (VAD) integration for hands-free operation
+- Tiered voice model resource management (HOT/WARM/COLD states)
+- 3-tier voice quality fallback chain (XTTS → Piper → System TTS)
 | R006 | The Doctor Architecture | High | Ongoing | Self-monitoring daemon specification |
 
 **R006 Refinements (2026-02-22):**
@@ -65,6 +71,12 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Hard resource quota enforcement (75%/85%/95% thresholds)
 - Doctor watchdog pattern for self-monitoring
 | R007 | URL Frontend Design | High | Ongoing | Web interface for direct access without chat channels |
+
+**R007 Refinements (2026-02-22 Midday):**
+- Component architecture specification (3-tier: Presentation/State/Service)
+- Progressive Web App (PWA) specification with offline support
+- 3-tier security model (Local-Only/Tailscale-Only/Public-Facing)
+- Real-time WebSocket protocol design with typed messages
 | R008 | Tailscale Integration | High | Ongoing | Secure mesh networking for distributed instances |
 
 **R008 Refinements (2026-02-22 Late Morning):**
@@ -112,6 +124,10 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - 3-tier dependency bundling (Core/Essential/On-Demand) with 3 bundle variants
 - Post-bootstrap verification checklist with systematic pass/fail indicators
 | R015 | Non-LLM Mundane Task Scripts | Medium | Ongoing | Self-contained scripts for tasks not requiring LLM | — |
+
+**R015 Refinements (2026-02-22 Midday):**
+- Script registry and discovery protocol with YAML metadata headers
+- Capability-based sandbox with 6 permission levels (NONE to SYSTEM)
 | R017 | Aesthetic Scoring System — Visual & Voice | High | Ongoing | Develop capability to process literal visual and sound data for quality comparison, not just tagging/transcribing. Enable aesthetic judgment of visual models (images, video) and voice models (TTS, voice cloning) | — |
 
 **R013 Goal:** Design (not implement) a survival package for **easy revival** — one unpack, one config, instant deployment:

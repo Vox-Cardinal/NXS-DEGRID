@@ -58,6 +58,7 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Ed25519 package signature verification for supply chain security
 - 4-tier bootstrap recovery states (Full/Degraded/Survival/Bootstrap)
 | R015 | Non-LLM Mundane Task Scripts | Medium | Ongoing | Self-contained scripts for tasks not requiring LLM | — |
+| R017 | Aesthetic Scoring System — Visual & Voice | High | Ongoing | Develop capability to process literal visual and sound data for quality comparison, not just tagging/transcribing. Enable aesthetic judgment of visual models (images, video) and voice models (TTS, voice cloning) | — |
 
 **R013 Goal:** Design (not implement) a survival package for **easy revival** — one unpack, one config, instant deployment:
 - **Single artifact** — self-contained, no external dependencies
@@ -102,6 +103,39 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Use only existing libraries
 - No LLM calls within scripts
 - Self-contained and composable
+
+**R017 Goal:** Develop an aesthetic scoring system that enables processing of literal visual and sound data for quality comparison and judgment, beyond simple tagging or transcription.
+
+**Visual Aesthetic Scoring:**
+- Image quality assessment (sharpness, color balance, composition)
+- Video frame analysis (motion smoothness, lighting consistency)
+- Style recognition and comparison (artistic vs. photorealistic vs. abstract)
+- Visual model output evaluation (ComfyUI, Stable Diffusion, etc.)
+- Reference-based scoring (how close to target aesthetic)
+
+**Voice Aesthetic Scoring:**
+- TTS voice quality assessment (naturalness, clarity, emotional range)
+- Voice cloning fidelity measurement
+- Accent and pronunciation evaluation
+- Prosody and rhythm analysis
+- Reference voice comparison (similarity to target voice)
+
+**Technical Approach:**
+- Computer vision models for visual assessment (CLIP, aesthetic predictors)
+- Audio analysis libraries for voice scoring (librosa, parselmouth)
+- Multi-modal embedding comparison for semantic similarity
+- Human-aligned scoring calibration
+
+**Deliverables:**
+1. Visual aesthetic scoring API/interface
+2. Voice aesthetic scoring API/interface
+3. Benchmark dataset and evaluation methodology
+4. Integration guide for NXS pipeline
+
+**Constraints:**
+- Research-only until March 19
+- Max 75% hardware usage
+- Document findings in real-time
 
 ---
 

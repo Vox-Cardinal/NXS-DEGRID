@@ -73,6 +73,72 @@
 
 ---
 
+## R013 Refinements (2026-02-22)
+
+### Delta Update Strategy
+**Decision:** Use bsdiff/zstd delta compression for survival package updates
+**Context:** R013 survival package research refinement
+**Alternatives:** Full package replacement only, rsync, git-based
+**Rationale:** Reduces update bandwidth from ~100MB to ~5-15MB typical; fallback to full if delta >50%
+
+### Package Signature Verification
+**Decision:** Ed25519 signatures for package integrity
+**Context:** Supply chain security for survival package
+**Alternatives:** SHA256 checksums only, GPG, no verification
+**Rationale:** Cryptographic verification protects against compromised CDN; offline signing key held by Architect
+
+### Bootstrap Recovery States
+**Decision:** 4-tier state model (Full/Degraded/Survival/Bootstrap)
+**Context:** Clarifying bootstrap failure handling
+**Alternatives:** Binary success/fail, 3-tier model
+**Rationale:** Graduated recovery provides clear user understanding of what's working
+
+---
+
+## R012 Refinements (2026-02-22)
+
+### Session Migration Protocol
+**Decision:** Encrypted state blob export/import for session migration
+**Context:** Cross-instance session continuity
+**Alternatives:** Shared database, message replay, no migration
+**Rationale:** Enables "pause here, resume there" for VM migration; GitHub gist as transport
+
+### Context Window Optimization
+**Decision:** Extractive summarization for older messages, full retention for recent
+**Context:** Reducing token usage for long sessions
+**Alternatives:** No compression, full summarization, truncation
+**Rationale:** ~40% token reduction while preserving critical decisions and promises
+
+---
+
+## R006 Refinements (2026-02-22)
+
+### Diagnosis Severity Classification
+**Decision:** 4-tier severity (Critical/High/Medium/Low) with differentiated response
+**Context:** The Doctor alert prioritization
+**Alternatives:** Binary urgent/normal, 3-tier, all equal
+**Rationale:** Prevents alert fatigue, ensures critical issues handled first
+
+### Doctor-NXS Communication Protocol
+**Decision:** Unix socket + JSON protocol
+**Context:** Doctor-NXS inter-process communication
+**Alternatives:** HTTP localhost, named pipes, shared memory
+**Rationale:** Reliable, local-only, no network dependency, simple JSON parsing
+
+### Resource Quota Enforcement
+**Decision:** Doctor enforces hard 75%/85%/95% thresholds
+**Context:** Preventing NXS from exceeding resource limits
+**Alternatives:** Soft warnings only, cgroup limits, NXS self-monitoring
+**Rationale:** Prevents OOM kills, ensures system stability, graduated response
+
+### Doctor Watchdog Pattern
+**Decision:** Systemd watchdog + state file for Doctor self-monitoring
+**Context:** Doctor as single point of failure
+**Alternatives:** No watchdog, external monitor only, restart always
+**Rationale:** Monitoring system monitors itself; bidirectional health checks with NXS
+
+---
+
 ---
 
 ## See Also

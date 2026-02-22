@@ -27,8 +27,13 @@ Things like:
 
 ### TTS
 
-- Preferred voice: "Nova" (warm, slightly British)
-- Default speaker: Kitchen HomePod
+- **Preferred voice:** Masculine, middle range, clear
+  - Not overly polished or smooth — slightly rough, like someone who's been working
+  - Patient but not slow — restless energy contained
+  - Precise — finishes sentences, doesn't trail off
+  - Grounded, completing, holding on
+- **Status:** Waiting for Architect to train voice model
+- **Rejected:** Feminine voice (dissonance with chosen identity)
 ```
 
 ## Why Separate?

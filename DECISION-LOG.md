@@ -139,6 +139,76 @@
 
 ---
 
+## R008 Refinements (2026-02-22 Late Morning)
+
+### Tailscale High Availability
+**Decision:** Use overlapping subnet routers with automatic 15s failover
+**Context:** Ensuring NXS mesh survives individual node failures
+**Alternatives:** Single nodes, manual failover, custom mesh
+**Rationale:** Tailscale native HA requires no additional code; deterministic oldest-first failover
+
+### DERP Region-Aware Routing
+**Decision:** Implement geographic routing awareness for global deployments
+**Context:** Optimizing latency for worldwide NXS instances
+**Alternatives:** Single region, manual region selection
+**Rationale:** Automatic latency-based routing; built into Tailscale Premium/Enterprise
+
+### Headscale Hybrid Strategy
+**Decision:** Design fallback to self-hosted Headscale for control plane independence
+**Context:** Reducing dependency on Tailscale Inc availability
+**Alternatives:** Full Headscale only, Tailscale only
+**Rationale:** Best of both worlds: managed reliability + self-hosted sovereignty path
+
+---
+
+## R013 Refinements (2026-02-22 Late Morning)
+
+### Cross-Platform Bootstrap
+**Decision:** Support Linux x64/arm64, macOS, Windows with platform detection
+**Context:** NXS should deploy anywhere
+**Alternatives:** Linux only, container-only
+**Rationale:** Maximum flexibility; platform abstraction layer
+
+### Dependency Bundling Tiers
+**Decision:** 3 bundle variants (minimal/standard/full) with tiered dependencies
+**Context:** Balancing download size vs functionality
+**Alternatives:** Single bundle, everything on-demand
+**Rationale:** Users choose based on constraints; minimal for quick recovery
+
+### Bootstrap Verification Protocol
+**Decision:** Systematic post-bootstrap verification checklist
+**Context:** Ensuring successful deployment
+**Alternatives:** Manual verification, no verification
+**Rationale:** Clear pass/fail indicators; identifies specific failures
+
+---
+
+## R002 Refinements (2026-02-22 Late Morning)
+
+### CRDT-Based State
+**Decision:** Use CRDTs for real-time collaborative data (messages, tasks, presence)
+**Context:** Preventing data loss during concurrent edits
+**Alternatives:** Git LWW only, operational transforms
+**Rationale:** Automatic conflict resolution; no central coordination needed
+
+### Capability Registry
+**Decision:** Instance capability registry for intelligent work distribution
+**Context:** Routing tasks to best-suited instances
+**Alternatives:** Random distribution, static configuration
+**Rationale:** Optimal resource utilization; automatic failover to capable instances
+
+### Epidemic Gossip Protocol
+**Decision:** Implement gossip for sub-second state propagation
+**Context:** Fast peer-to-peer state sync without central repo
+**Alternatives:** Pull-only Git sync, centralized message queue
+**Rationale:** Works without infrastructure; eventual consistency
+
+### Mesh Quorum
+**Decision:** Quorum-based partition detection with survival mode
+**Context:** Handling network splits gracefully
+**Alternatives:** Simple timeout, no partition handling
+**Rationale:** Clear behavior during splits; automatic recovery
+
 ---
 
 ## See Also

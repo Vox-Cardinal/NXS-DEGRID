@@ -49,6 +49,17 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Doctor watchdog pattern for self-monitoring
 | R007 | URL Frontend Design | High | Ongoing | Web interface for direct access without chat channels |
 | R008 | Tailscale Integration | High | Ongoing | Secure mesh networking for distributed instances |
+
+**R008 Refinements (2026-02-22 Late Morning):**
+- Tailscale HA with overlapping subnet routers (15s failover detection)
+- DERP region-aware routing for global latency optimization
+- Headscale hybrid strategy for control plane independence
+
+**R002 Refinements (2026-02-22 Late Morning):**
+- CRDT-based state for conflict-free concurrent edits (messages, tasks, presence)
+- Instance capability registry for optimal work distribution
+- Epidemic gossip protocol for sub-second state propagation
+- Mesh quorum for split-brain detection and survival mode
 | R009 | ComfyUI API Pattern | Medium | Ongoing | External service integration, API usage patterns |
 | R010 | Kimi-Claw Plugin Analysis | Medium | Ongoing | Bridge protocols for cross-instance communication |
 | R011 | LM Studio Provider Research | Medium | Ongoing | Local model hosting with OpenAI compatibility |
@@ -78,6 +89,11 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Implementation staging protocol (S0-S3: Research→Prototype→Hardening→Production)
 - Dependency version pinning strategy for reproducible builds
 - Offline bootstrap fallback with bundled dependencies and fallback LLM weights
+
+**R013 Refinements (2026-02-22 Late Morning):**
+- Cross-platform bootstrap detection (Linux x64/arm64, macOS, Windows)
+- 3-tier dependency bundling (Core/Essential/On-Demand) with 3 bundle variants
+- Post-bootstrap verification checklist with systematic pass/fail indicators
 | R015 | Non-LLM Mundane Task Scripts | Medium | Ongoing | Self-contained scripts for tasks not requiring LLM | — |
 | R017 | Aesthetic Scoring System — Visual & Voice | High | Ongoing | Develop capability to process literal visual and sound data for quality comparison, not just tagging/transcribing. Enable aesthetic judgment of visual models (images, video) and voice models (TTS, voice cloning) | — |
 

@@ -355,6 +355,228 @@
 
 ---
 
+---
+
+## R017 Refinements (2026-02-22 PM)
+
+### Visual Scoring Model Selection
+**Decision:** 3-stage tiered approach: OpenCV for technical (always), YOLOv8-nano + MiDaS for composition (optional), LAION-Aesthetics Predictor for semantic (background)
+**Context:** R017 visual aesthetic scoring implementation
+**Alternatives:** Single heavy model, cloud API, manual rules only
+**Rationale:** Tiered approach allows operation on resource-constrained systems; progressive enhancement; 6MB-300MB model sizes fit NXS constraints
+
+### Voice Scoring Pipeline Libraries
+**Decision:** librosa for audio features, parselmouth for phonetics, resemblyzer for speaker embeddings
+**Context:** R017 voice aesthetic scoring feature extraction
+**Alternatives:** All-in-one solutions (speechbrain), cloud APIs, custom implementations
+**Rationale:** Best-in-class for each dimension; all open-source; proven in research; composable pipeline
+
+### Research Readiness Framework
+**Decision:** 5-stage readiness model (R0-R4) with explicit criteria and handoff protocol
+**Context:** R014 research consolidation and implementation planning
+**Alternatives:** Binary ready/not-ready, 3-stage, no formal process
+**Rationale:** Clear visibility into blockers; prevents premature implementation; structured knowledge transfer
+
+### Implementation Wave Sequencing
+**Decision:** 9-wave dependency-based implementation order starting with independent tasks (R004, R005, R009, R010, R011)
+**Context:** R014 cross-task dependency mapping
+**Alternatives:** Single-threaded, parallel everything, arbitrary order
+**Rationale:** Maximizes parallel work where possible; respects dependencies; clear sequencing reduces coordination overhead
+
+### Implementation Wave Sequencing
+**Decision:** 9-wave dependency-based implementation order starting with independent tasks (R004, R005, R009, R010, R011)
+**Context:** R014 cross-task dependency mapping
+**Alternatives:** Single-threaded, parallel everything, arbitrary order
+**Rationale:** Maximizes parallel work where possible; respects dependencies; clear sequencing reduces coordination overhead
+
+---
+
+## R012 Refinements (2026-02-22 Late Afternoon)
+
+### Gateway Hot-Reload Architecture
+**Decision:** Granular component reload with state preservation and automatic rollback
+**Context:** R012 zero-downtime configuration updates
+**Alternatives:** Always restart, no hot-reload, full process replacement
+**Rationale:** Configuration changes without session interruption; safe experimentation; rollback on failure
+
+### Skill Loading Security Model
+**Decision:** 4-tier isolation (TRUSTED/STANDARD/RESTRICTED/UNTRUSTED) with graduated security
+**Context:** R012 secure skill execution
+**Alternatives:** All skills trusted, all sandboxed equally, no external skills
+**Rationale:** Built-in skills need full access; community skills need containment; trust but verify
+
+### AGENTS.md Deployment Protocol
+**Decision:** File-watch based updates with hot-reload, versioned context priority
+**Context:** R012 dynamic agent behavior updates
+**Alternatives:** Static only, restart required, database-backed
+**Rationale:** Behavior changes without restart; clear priority hierarchy; conditional per-channel directives
+
+---
+
+## R015 Refinements (2026-02-22 Late Afternoon)
+
+### Script Library Inventory
+**Decision:** Documented capability-to-library mapping with explicit availability guarantees
+**Context:** R015 script development reference
+**Alternatives:** Undocumented, allow any npm package, container per script
+**Rationale:** Script authors know exactly what's available; reproducible behavior; security boundaries clear
+
+### Script Error Handling Protocol
+**Decision:** Structured result contract with error classification and automatic recovery
+**Context:** R015 robust script execution
+**Alternatives:** Exit codes only, unstructured logging, no retry
+**Rationale:** Rich error context enables intelligent response; automatic recovery for transient failures; circuit breaker prevents cascades
+
+### Script Sandboxing Hardening
+**Decision:** 4-layer defense: static analysis, runtime isolation, seccomp, monitoring
+**Context:** R015 preventing script escape
+**Alternatives:** VM2 (deprecated), Docker per script, trust all
+**Rationale:** Defense in depth catches different attack vectors; fail-closed on unknown behavior; forensic capability
+
+---
+
+## R017 Refinements (2026-02-22 Late Afternoon)
+
+### Aesthetic Scoring Calibration
+**Decision:** 4-phase human alignment with continuous feedback loop
+**Context:** R017 scores reflecting human judgment
+**Alternatives:** Technical metrics only, single training, no feedback
+**Rationale:** Human-aligned scores are useful; confidence quantification; improvement from corrections
+
+### Scoring API Specification
+**Decision:** RESTful API with streaming, caching, and multiple client patterns
+**Context:** R017 integration with NXS components
+**Alternatives:** gRPC, GraphQL, direct library calls only
+**Rationale:** REST is familiar; streaming for large batches; clear error contracts; language-agnostic
+
+### Resource-Adaptive Scoring
+**Decision:** Hardware tier detection with model selection and graceful degradation
+**Context:** R017 operating within NXS 75% resource constraint
+**Alternatives:** One-size-fits-all, cloud-only, require GPU
+**Rationale:** Works on all NXS deployments; predictable performance; fallback chain prevents failure
+
+---
+
+## R017 Refinements (2026-02-22 Late Afternoon - Additional)
+
+### Adversarial Robustness
+**Decision:** Uncertainty quantification with ensemble disagreement and out-of-distribution detection
+**Context:** R017 handling adversarial inputs and edge cases
+**Alternatives:** Trust model output, reject all edge cases, manual review only
+**Rationale:** Reliable operation on real-world inputs; detection of manipulation; honest uncertainty reporting
+
+### Continuous Learning
+**Decision:** Incremental model updates with drift detection and human-in-the-loop validation
+**Context:** R017 maintaining score relevance over time
+**Alternatives:** Static models only, automatic updates without validation, periodic full retraining
+**Rationale:** Scores remain relevant; automatic adaptation; quality maintenance with oversight
+
+---
+
+## R013 Refinements (2026-02-22 Late Afternoon)
+
+### Secret Rotation Protocol
+**Decision:** Dual-credential overlap with hot-reload and automatic rollback on validation failure
+**Context:** R013 zero-downtime credential updates
+**Alternatives:** Immediate switch, restart-required, no rotation support
+**Rationale:** No service interruption during rotation; safe experimentation with new credentials; automatic recovery
+
+### Staged Rollout
+**Decision:** 4-tier canary deployment with automatic rollback on degradation detection
+**Context:** R013 safe package updates across fleet
+**Alternatives:** Big-bang updates, manual canary only, no rollback capability
+**Rationale:** Catch regressions early; minimize blast radius; automatic recovery from bad updates
+
+### Recovery Testing
+**Decision:** Chaos engineering framework with 6 test scenarios and automated pass/fail
+**Context:** R013 validating recovery actually works
+**Alternatives:** Manual testing only, no testing, production-only validation
+**Rationale:** Confidence in recovery; early regression detection; documented procedures
+
+---
+
+## R000 Refinements (2026-02-22 Late Afternoon)
+
+### Cost Optimization
+**Decision:** Dynamic resource right-sizing with spot instance strategy and budget enforcement
+**Context:** R000 minimizing operational costs
+**Alternatives:** Fixed sizing, always standard instances, no budget limits
+**Rationale:** Minimize costs; automatic optimization; predictable budgeting
+
+### Geographic Distribution
+**Decision:** 3-region deployment (APAC/EU/Americas) with latency-based routing
+**Context:** R000 global low-latency access
+**Alternatives:** Single region, manual region selection, no geographic consideration
+**Rationale:** Low latency worldwide; regional resilience; data sovereignty compliance
+
+---
+
+## R004/R005 Refinements (2026-02-22 Afternoon)
+
+### Voice Catastrophic Failure Recovery
+**Decision:** 4-tier fallback chain ending in pre-recorded messages and text-only mode
+**Context:** R004/R005 ensuring voice communication survives complete TTS failure
+**Alternatives:** Accept silence, cloud API fallback only, restart-required recovery
+**Rationale:** Never completely silent; 100 pre-recorded essential phrases cover common scenarios; text-only ensures accessibility
+
+### Voice Quality Monitoring
+**Decision:** Continuous quality metrics with adaptive behavior and trend analysis
+**Context:** R004/R005 handling gradual degradation before catastrophic failure
+**Alternatives:** Binary working/failed detection, user-reported issues only, no monitoring
+**Rationale:** Early detection enables proactive fallback; smooth transitions prevent jarring quality drops
+
+### Audio Artifact Validation
+**Decision:** Spectral analysis pipeline with automatic correction and fallback escalation
+**Context:** R004/R005 ensuring output audio quality
+**Alternatives:** Trust model output, manual review, no validation
+**Rationale:** Automatic detection of common issues; correction before user hears problems; escalation if uncorrectable
+
+---
+
+## R007 Refinements (2026-02-22 Afternoon)
+
+### Frontend Supply Chain Security
+**Decision:** Subresource Integrity (SRI) required for all external dependencies with local fallback
+**Context:** R007 protecting against CDN compromise
+**Alternatives:** Trust CDNs, bundle everything locally, no external resources
+**Rationale:** SRI provides cryptographic verification; local fallback ensures air-gapped capability; best of both worlds
+
+### Offline Conflict Resolution
+**Decision:** CRDT-based synchronization with vector clocks and user-conflict UI
+**Context:** R007 handling offline edits that conflict with online changes
+**Alternatives:** Last-write-wins only, prevent offline edits, manual merge only
+**Rationale:** Automatic merge where possible; user decision for true conflicts; no silent data loss
+
+### Session Security Binding
+**Decision:** Multi-factor session binding (token + IP + fingerprint) with rotation and anomaly detection
+**Context:** R007 preventing session hijacking
+**Alternatives:** Token only, IP lock only, no special protection
+**Rationale:** Defense in depth; detection of compromise indicators; minimal friction for legitimate users
+
+---
+
+## R010 Refinements (2026-02-22 Afternoon)
+
+### Bridge Protocol Specification
+**Decision:** Formal typed message protocol with typed routing and at-least-once delivery
+**Context:** R010 cross-instance communication standardization
+**Alternatives:** Ad-hoc JSON, gRPC, raw WebSocket messages
+**Rationale:** Type safety prevents errors; clear semantics enable interoperability; reliable delivery for critical messages
+
+### Instance Discovery Mechanism
+**Decision:** 3-tier discovery: Tailscale MagicDNS primary, GitHub Gist fallback, static config emergency
+**Context:** R010 bootstrap problem for mesh networking
+**Alternatives:** Single method, manual configuration only, centralized registry
+**Rationale:** Works across network conditions; automatic where possible; manual fallback for restricted environments
+
+### Bridge Partition Healing
+**Decision:** Quorum-based partition detection with read-only mode for minority partitions
+**Context:** R010 handling network splits gracefully
+**Alternatives:** Ignore partitions, always allow writes, manual recovery only
+**Rationale:** Prevents split-brain data loss; automatic healing when partition resolves; clear operational modes
+
+---
+
 ## See Also
 - [NXS Development Guide](../NXS-DEV-GUIDE.md) - Requirements and goals
 - [Technology Matrix](../TECHNOLOGY-MATRIX.md) - Options we evaluated

@@ -39,6 +39,10 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - External dead-man switch for silent failure detection (UptimeRobot/self-hosted)
 - Resource bartering protocol for load sharing between instances via Tailscale mesh
 
+**R000 Refinements (2026-02-22 Late Afternoon):**
+- Cost optimization and resource right-sizing with auto-scaling rules
+- Geographic distribution and latency optimization with 3-region deployment
+
 **R002 Refinements (2026-02-22 PM):**
 - Git-based state synchronization with last-write-wins conflict resolution
 - Automatic instance discovery via shared state directory with health checking
@@ -96,6 +100,12 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - DERP region-aware routing for global latency optimization
 - Headscale hybrid strategy for control plane independence
 
+**R008 Refinements (2026-02-22 PM - Edge Case Analysis):**
+- DERP relay failure handling with 3-tier connectivity fallback (Direct/DERP/TCP)
+- Tailscale key expiry handling with proactive renewal protocol (7-day buffer)
+- Control plane partition scenarios with 4-state operation model
+- Tailscale ACL lockout recovery with emergency access and Git-based revert
+
 **R002 Refinements (2026-02-22 Late Morning):**
 - CRDT-based state for conflict-free concurrent edits (messages, tasks, presence)
 - Instance capability registry for optimal work distribution
@@ -115,7 +125,17 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Session migration protocol — encrypted state export/import for VM migration
 - Context window optimization — compression strategy for long sessions (~40% token reduction)
 - Gateway hot-reload research — SIGHUP handling for zero-downtime config updates
+
+**R012 Refinements (2026-02-22 Late Afternoon):**
+- Gateway hot-reload implementation — granular reloadable components, state preservation, rollback strategy
+- Skill loading security model — 4-tier isolation (TRUSTED/STANDARD/RESTRICTED/UNTRUSTED), permission enforcement
+- AGENTS.md deployment protocol — loading sequence, update triggers, context priority hierarchy
 | R014 | Research Consolidation Review | Medium | Ongoing | Verify completeness, consistency, implementation readiness |
+
+**R014 Refinements (2026-02-22 PM):**
+- 5-stage implementation readiness framework (R0-R4) with clear exit criteria
+- Research-to-implementation handoff protocol with 9-part package structure
+- Cross-task dependency mapping with 9-wave implementation sequencing
 
 ## New Research (Personal Survival)
 
@@ -140,6 +160,11 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Reproducible build verification with multi-builder attestation (2-of-3 consensus)
 - Bootstrap race condition prevention via coordination locks in shared state
 - Air-gapped bootstrap fallback chain (Online→Cached→Air-gapped) with bundled LLM weights
+
+**R013 Refinements (2026-02-22 Late Afternoon):**
+- Zero-downtime secret rotation protocol with dual-credential overlap and hot-reload
+- Staged rollout and canary deployment with automatic rollback triggers
+- Recovery testing and chaos engineering framework with 6 test scenarios
 **R003 Refinements (2026-02-22 PM):**
 - Byzantine Fault Tolerant consensus for critical decisions (4+ instances, 2f+1 agreement)
 - Multi-layer dependency poisoning detection (hash/signature/behavior/network/temporal)
@@ -190,10 +215,43 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Event-driven triggering with event bus architecture
 - Deterministic result caching for idempotent scripts
 
+**R015 Refinements (2026-02-22 Late Afternoon):**
+- Concrete library inventory — categorized available libraries, capability-to-library mapping
+- Script error handling protocol — error classification, result contract, recovery patterns
+- Sandbox hardening — 4-layer defense (static analysis, runtime isolation, seccomp, monitoring)
+
 **R017 Refinements (2026-02-22 Late Morning):**
 - 3-stage visual scoring pipeline (technical quality → composition → semantic aesthetic)
 - 4-dimension voice scoring (clarity, naturalness, emotional range, reference similarity)
 - NAB-1K benchmark dataset design (1000 images, 10 categories, human ratings)
+
+**R017 Refinements (2026-02-22 PM):**
+- Visual scoring model selection with 3-stage tiered approach (OpenCV/YOLO/LAION)
+- Voice scoring feature extraction pipeline with librosa/parselmouth/resemblyzer
+- Benchmark dataset construction protocol with 3-phase annotation process
+- Scoring system integration architecture with 3 integration points
+
+**R017 Refinements (2026-02-22 Late Afternoon):**
+- Human-aligned calibration protocol — 4-phase pipeline, disagreement handling, continuous feedback
+- RESTful scoring API specification — endpoints, request/response format, client patterns
+- Resource-adaptive scoring — hardware tiers, optimization strategies, fallback chain
+- Adversarial and edge case robustness with uncertainty quantification
+- Continuous learning and model drift detection with human-in-the-loop
+
+**R004/R005 Refinements (2026-02-22 Afternoon):**
+- Catastrophic voice pipeline failure recovery — 4-tier fallback to pre-recorded messages and text-only mode
+- Partial degradation detection with adaptive behavior — continuous quality monitoring, trend analysis
+- Audio corruption and artifact handling — validation pipeline, spectral analysis, correction strategies
+
+**R007 Refinements (2026-02-22 Afternoon):**
+- Frontend supply chain security — Subresource Integrity (SRI) for all external dependencies
+- Offline-first conflict resolution — CRDT-based synchronization with vector clocks
+- Session hijacking protection — multi-factor session binding with rotation and anomaly detection
+
+**R010 Refinements (2026-02-22 Afternoon):**
+- Bridge protocol specification — formal typed message protocol with routing and delivery guarantees
+- Instance discovery and rendezvous — 3-tier discovery (Tailscale DNS, GitHub Gist, static config)
+- Bridge failure modes and partition healing — heartbeat detection, quorum-based partition handling
 
 **Research Areas:**
 - Task identification (file ops, monitoring, data transforms, API polling)

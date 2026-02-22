@@ -63,6 +63,12 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Voice Activity Detection (VAD) integration for hands-free operation
 - Tiered voice model resource management (HOT/WARM/COLD states)
 - 3-tier voice quality fallback chain (XTTS → Piper → System TTS)
+
+**R004/R005 Refinements (2026-02-22 PM):**
+- Voice pipeline state machine with timeout and recovery (IDLE→LISTENING→PROCESSING→THINKING→SYNTHESIZING→SPEAKING)
+- Tiered voice model loading (HOT: GPU/VRAM, WARM: RAM, COLD: disk) with automatic transitions
+- Voice quality fallback chain (XTTS-v2 → Piper → espeak-ng) with failure detection
+- State persistence for crash recovery at any pipeline stage
 | R006 | The Doctor Architecture | High | Ongoing | Self-monitoring daemon specification |
 
 **R006 Refinements (2026-02-22):**
@@ -77,6 +83,12 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Progressive Web App (PWA) specification with offline support
 - 3-tier security model (Local-Only/Tailscale-Only/Public-Facing)
 - Real-time WebSocket protocol design with typed messages
+
+**R007 Refinements (2026-02-22 PM):**
+- WebSocket per-message deflate compression (40-80% bandwidth reduction)
+- PWA offline strategy with message queue and automatic sync
+- Viewport-aware message virtualization for long conversations
+- Compression tiering based on message size (thresholds: 256B/10KB)
 | R008 | Tailscale Integration | High | Ongoing | Secure mesh networking for distributed instances |
 
 **R008 Refinements (2026-02-22 Late Morning):**
@@ -123,7 +135,20 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Cross-platform bootstrap detection (Linux x64/arm64, macOS, Windows)
 - 3-tier dependency bundling (Core/Essential/On-Demand) with 3 bundle variants
 - Post-bootstrap verification checklist with systematic pass/fail indicators
-| R015 | Non-LLM Mundane Task Scripts | Medium | Ongoing | Self-contained scripts for tasks not requiring LLM | — |
+
+**R013 Refinements (2026-02-22 PM):**
+- Reproducible build verification with multi-builder attestation (2-of-3 consensus)
+- Bootstrap race condition prevention via coordination locks in shared state
+- Air-gapped bootstrap fallback chain (Online→Cached→Air-gapped) with bundled LLM weights
+**R003 Refinements (2026-02-22 PM):**
+- Byzantine Fault Tolerant consensus for critical decisions (4+ instances, 2f+1 agreement)
+- Multi-layer dependency poisoning detection (hash/signature/behavior/network/temporal)
+- Developer coercion resistance with duress detection signals and response levels
+
+**R006 Refinements (2026-02-22 PM):**
+- Bidirectional health checking with Watchdog for Doctor failure scenarios
+- Alert fatigue prevention via state machine deduplication and flapping detection
+- Diagnostic confidence scoring with multi-source verification and false positive tracking
 
 **R015 Refinements (2026-02-22 Midday):**
 - Script registry and discovery protocol with YAML metadata headers
@@ -158,6 +183,12 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - 5 concrete script examples (file watcher, log rotator, health reporter, git sync, API poller)
 - 3 integration patterns (cron, event trigger, HTTP endpoint)
 - Script capability registry with metadata headers for auto-discovery
+
+**R015 Refinements (2026-02-22 PM):**
+- 6-tier capability sandbox (NONE → READ_FS → WRITE_FS → READ_EXT → WRITE_EXT → EXECUTE → SYSTEM)
+- Script registry auto-discovery with manifest.yaml parsing
+- Event-driven triggering with event bus architecture
+- Deterministic result caching for idempotent scripts
 
 **R017 Refinements (2026-02-22 Late Morning):**
 - 3-stage visual scoring pipeline (technical quality → composition → semantic aesthetic)

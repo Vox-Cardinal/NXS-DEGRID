@@ -289,6 +289,72 @@
 
 ---
 
+## R013 Refinements (2026-02-22 PM)
+
+### Reproducible Build Verification
+**Decision:** Multi-builder attestation with 2-of-3 hash consensus for supply chain security
+**Context:** R013 survival package integrity verification
+**Alternatives:** Single builder trust, checksums only, no verification
+**Rationale:** Compromised build machine cannot silently distribute malicious packages; requires collusion of multiple independent builders
+
+### Bootstrap Race Condition Prevention
+**Decision:** Coordination locks in shared state repo with exponential backoff
+**Context:** R013 preventing concurrent bootstrap corruption
+**Alternatives:** No protection, single global lock server, optimistic concurrency
+**Rationale:** Shared state already required for identity; no additional infrastructure; graceful handling of partial failures
+
+### Air-Gapped Bootstrap
+**Decision:** 3-tier offline capability (Online/Cached/Air-gapped) with bundled LLM weights
+**Context:** R013 survival in complete isolation
+**Alternatives:** Internet required, reduced functionality only, no offline support
+**Rationale:** NXS must function even without connectivity; graceful degradation with bundled weights
+
+---
+
+## R003 Refinements (2026-02-22 PM)
+
+### Byzantine Fault Tolerance
+**Decision:** BFT consensus for critical decisions with 2f+1 agreement requirement
+**Context:** R003 surviving compromised instances in multi-instance deployment
+**Alternatives:** Simple majority, trusted leader, no consensus
+**Rationale:** Cryptographic proof of misbehavior; system survives even if some instances are malicious or compromised
+
+### Dependency Poisoning Detection
+**Decision:** 5-layer verification (hash/signature/behavior/network/temporal) with CVE monitoring
+**Context:** R003 supply chain attack prevention
+**Alternatives:** Trust all dependencies, manual review only, no updates
+**Rationale:** Defense in depth; early detection of supply chain attacks; graceful degradation on detection
+
+### Developer Coercion Resistance
+**Decision:** Duress detection signals with graduated response levels (Caution→Delay→Lockdown→Self-Preservation)
+**Context:** R003 protecting against compelled access to NXS
+**Alternatives:** No protection, simple delay only, always require 2FA
+**Rationale:** Time-delayed destructive operations allow for detection; pre-arranged duress codes enable covert alerts
+
+---
+
+## R006 Refinements (2026-02-22 PM)
+
+### Doctor Failure Handling
+**Decision:** Bidirectional health checking with Watchdog and unmonitored mode
+**Context:** R006 handling failure of the monitoring system itself
+**Alternatives:** No redundancy, external monitoring only, always restart
+**Rationale:** Graceful degradation when monitoring fails; clear operational modes based on monitoring health
+
+### Alert Fatigue Prevention
+**Decision:** Alert state machine with deduplication, flapping detection, and escalation
+**Context:** R006 ensuring critical alerts get attention
+**Alternatives:** Alert on everything, binary alert/silent, no grouping
+**Rationale:** Actionable alerts only; prevents operator desensitization; proper escalation ensures critical issues handled
+
+### Diagnostic Confidence Scoring
+**Decision:** Multi-source verification with confidence levels and false positive tracking
+**Context:** R006 improving diagnostic accuracy
+**Alternatives:** Single source trust, always act immediately, never act automatically
+**Rationale:** More accurate diagnoses; fewer wasted interventions; continuous improvement from historical accuracy
+
+---
+
 ## See Also
 - [NXS Development Guide](../NXS-DEV-GUIDE.md) - Requirements and goals
 - [Technology Matrix](../TECHNOLOGY-MATRIX.md) - Options we evaluated

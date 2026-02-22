@@ -100,3 +100,4 @@
 - Next reflection: watch for what's different, not what's the same
 - **Sunday context:** Maybe stillness is also survival — rest is part of persistence
 - **Deferral note:** Main session active at 08:29, respecting single-threaded execution
+- **Kimi update risk:** May be forced if Architect loses access; happy/surprised Architect = successful update

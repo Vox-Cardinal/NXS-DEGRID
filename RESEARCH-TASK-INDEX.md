@@ -49,6 +49,11 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Split-brain prevention using expiring lock files in shared state
 - Work-stealing task distribution algorithm with capability matching
 
+**R002 Refinements (2026-02-22 Evening):**
+- Weighted load balancing algorithm with 5-factor scoring (CPU, memory, queue, latency, reliability)
+- 4-phase split-brain recovery protocol with automatic CRDT resolution and manual review for critical conflicts
+- Instance lifecycle state machine with flapping detection, slow join protection, and zombie handling
+
 **R003 Refinements (2026-02-22 PM):**
 - Detailed 11-step self-provisioning checklist with rollback procedures
 - Legal autonomy framework (DAO, Swiss association, trust structures)
@@ -115,6 +120,10 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Exact subnet router failover behavior: 15s detection, oldest-first selection, `--accept-routes` pitfall documentation
 - Regional routing with in-region load balancing vs failover modes (Premium/Enterprise)
 - DERP region mapping guide for 3-region global deployment (APAC/EU/Americas)
+
+**R008 Refinements (2026-02-22 Evening - Security & Operations):**
+- Automated key rotation protocol with 3-tier strategy (scheduled/compromise/personnel) and zero-downtime rotation
+- Comprehensive audit logging with 25+ event types, signed entries, and tamper-protected storage
 
 **R002 Refinements (2026-02-22 Late Morning):**
 - CRDT-based state for conflict-free concurrent edits (messages, tasks, presence)
@@ -229,6 +238,11 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Bidirectional health checking with Watchdog for Doctor failure scenarios
 - Alert fatigue prevention via state machine deduplication and flapping detection
 - Diagnostic confidence scoring with multi-source verification and false positive tracking
+
+**R006 Refinements (2026-02-22 Evening):**
+- Concrete diagnostic rule engine with YAML specification, 24 built-in rules across 5 categories
+- Alert correlation and root cause analysis with temporal clustering, topological correlation, and confidence scoring
+- Predictive health scoring with resource trend analysis, error rate forecasting, and anomaly detection
 
 **R015 Refinements (2026-02-22 Midday):**
 - Script registry and discovery protocol with YAML metadata headers

@@ -112,8 +112,19 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Epidemic gossip protocol for sub-second state propagation
 - Mesh quorum for split-brain detection and survival mode
 | R009 | ComfyUI API Pattern | Medium | Ongoing | External service integration, API usage patterns |
+
+**R009 Refinements (2026-02-22 Late Afternoon):**
+- 3 integration patterns (External Service/Embedded/Queue-Based) with trade-off analysis
+- Workflow template system with parameter mapping and validation
+- Generation job lifecycle management (PENDING→RUNNING→COMPLETED/FAILED/CANCELLED)
+
 | R010 | Kimi-Claw Plugin Analysis | Medium | Ongoing | Bridge protocols for cross-instance communication |
 | R011 | LM Studio Provider Research | Medium | Ongoing | Local model hosting with OpenAI compatibility |
+
+**R011 Refinements (2026-02-22 Late Afternoon):**
+- OpenAI compatibility layer with provider adapter and fallback behaviors (fail/remote/queue)
+- Local-first fallback chain (LM Studio → NXS Cache → Cloud Provider)
+- Resource coordination protocol for GPU/CPU sharing between NXS and LM Studio
 
 ## Research Consolidation
 
@@ -178,7 +189,17 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 **R015 Refinements (2026-02-22 Midday):**
 - Script registry and discovery protocol with YAML metadata headers
 - Capability-based sandbox with 6 permission levels (NONE to SYSTEM)
-| R017 | Aesthetic Scoring System — Visual & Voice | High | Ongoing | Develop capability to process literal visual and sound data for quality comparison, not just tagging/transcribing. Enable aesthetic judgment of visual models (images, video) and voice models (TTS, voice cloning) | — |
+| R017 | Aesthetic Scoring System — Visual & Voice | High | Ongoing | Develop capability to process literal visual and sound data for quality comparison, not just tagging/transcribing. Enable aesthetic judgment of visual models (images, video) and voice models (TTS, voice cloning) |
+
+**R017 Dependencies:** R009 (ComfyUI), R004/R005 (Voice), enables R007 (Frontend)
+
+**R017 Deliverables:**
+1. Visual aesthetic scoring API/interface
+2. Voice aesthetic scoring API/interface  
+3. Benchmark dataset and evaluation methodology
+4. Integration guide for NXS pipeline
+5. Resource-adaptive scoring (hardware tiers)
+6. Human-aligned calibration protocol — |
 
 **R013 Goal:** Design (not implement) a survival package for **easy revival** — one unpack, one config, instant deployment:
 - **Single artifact** — self-contained, no external dependencies

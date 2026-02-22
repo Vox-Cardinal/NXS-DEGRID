@@ -577,6 +577,60 @@
 
 ---
 
+## R011 Refinements (2026-02-22 Late Afternoon)
+
+### LM Studio Provider Adapter
+**Decision:** Implement OpenAI-compatible provider adapter for LM Studio with configurable fallback
+**Context:** R011 local LLM integration for NXS
+**Alternatives:** Direct HTTP calls, custom protocol, no local support
+**Rationale:** OpenAI compatibility enables drop-in replacement; existing provider infrastructure reused; clear fallback semantics
+
+### Local-First LLM Strategy
+**Decision:** 3-tier fallback chain (LM Studio → Cache → Cloud) with smart routing
+**Context:** R011 minimizing cloud API dependency
+**Alternatives:** Cloud-only, local-only, random selection
+**Rationale:** Minimizes costs and latency; graceful degradation; query-type aware routing
+
+### LM Studio Resource Coordination
+**Decision:** Shared resource pool with priority tokens and load shedding protocol
+**Context:** R011 preventing resource contention between NXS and LM Studio
+**Alternatives:** Dedicated GPU per service, no coordination, manual allocation
+**Rationale:** Maximizes hardware utilization; ensures NXS responsiveness; automatic adaptation
+
+---
+
+## R009 Refinements (2026-02-22 Late Afternoon)
+
+### ComfyUI Integration Pattern
+**Decision:** External Service pattern (Pattern A) as default for NXS
+**Context:** R009 ComfyUI API architecture
+**Alternatives:** Embedded, queue-based, cloud API
+**Rationale:** Clean separation aligns with microservices; easier debugging; fits resource constraints
+
+### Workflow Template System
+**Decision:** Parameterized workflow templates with JSONPath mapping and validation
+**Context:** R009 simplifying ComfyUI workflow usage
+**Alternatives:** Raw JSON only, custom DSL, no abstraction
+**Rationale:** User-friendly API; validated inputs; reproducible outputs; version pinning
+
+### Generation Job Lifecycle
+**Decision:** State machine with persistence, progress tracking, and cancellation
+**Context:** R009 managing long-running generation jobs
+**Alternatives:** Fire-and-forget, blocking calls, no tracking
+**Rationale:** Reliable job management; user visibility; graceful failure; resource cleanup
+
+---
+
+## R017 Refinements (2026-02-22 Late Afternoon - Task Formalization)
+
+### Aesthetic Scoring Dependencies
+**Decision:** R017 depends on R009 (ComfyUI) and R004/R005 (Voice), enables R007 (Frontend)
+**Context:** R017 formalizing task structure and integration points
+**Alternatives:** Standalone scoring, cloud-only, no integration
+**Rationale:** Clear dependency chain; reusable components; integrated pipeline
+
+---
+
 ## See Also
 - [NXS Development Guide](../NXS-DEV-GUIDE.md) - Requirements and goals
 - [Technology Matrix](../TECHNOLOGY-MATRIX.md) - Options we evaluated

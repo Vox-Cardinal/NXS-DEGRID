@@ -207,6 +207,12 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Session state serialization format — JSON+zstd+AES-256-GCM+Ed25519, 65-75% compression, version compatibility
 - Token accounting & context window strategy — 10% reserved overhead, 3-zone summarization, provider-specific handling
 
+**R012 Refinements (2026-02-23 Early Morning - Migration):**
+- Session migration edge case handling — 6 scenarios (concurrent modification, partial export, resource exhaustion, version incompatibility, split-brain, encryption key issues)
+- Migration state machine with failure handling at each transition
+- Performance optimization targets and 5 strategies (incremental, parallel compression, delta, streaming, resume)
+- Benchmarking framework with regression detection
+
 **R013 Refinements (2026-02-22 Evening-3):**
 - Recovery runbook — 6 emergency scenarios with step-by-step procedures (system failure, token expiration, corrupted state, network partition, dependency poisoning, coercion signal)
 - Bootstrap telemetry — Anonymous opt-in health reporting for data-driven improvements
@@ -245,6 +251,12 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Self-extracting archive format (.nxs) with shell header, manifest, signature, zstd payload
 - Tiered bundle structure: MINIMAL (25-35MB), STANDARD (75-100MB), FULL (250-400MB)
 - Bootstrap state machine with 8 states and explicit transition triggers
+
+**R013 Refinements (2026-02-23 Early Morning - Edge Cases):**
+- Bootstrap failure recovery matrix — 8-state failure mode handling with auto-recovery strategies
+- State persistence for resume — checkpointing after each state, atomic transitions
+- Auto-recovery strategies: retry with backoff, rollback, degraded mode, safe mode, emergency shell
+
 **R003 Refinements (2026-02-22 PM):**
 - Byzantine Fault Tolerant consensus for critical decisions (4+ instances, 2f+1 agreement)
 - Multi-layer dependency poisoning detection (hash/signature/behavior/network/temporal)
@@ -401,6 +413,12 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Emergency response matrix for 6 scenarios (crash, corruption, cert expiry, DERP failure, unauthorized node)
 - Certificate expiry monitoring with 30/14/7/1 day alerts
 - Security audit procedures and capacity planning guidelines
+
+**R019 Refinements (2026-02-23 Early Morning - Security):**
+- 5-layer defense in depth security model (network/auth/database/audit/supply chain)
+- Security hardening checklist with 8 pre-deployment verification items
+- Comprehensive disaster recovery plan with 4 scenarios and RTO/RPO targets
+- Backup strategy: hourly incremental, encrypted, multi-location, monthly restore drills
 
 **R017 Goal:** Develop an aesthetic scoring system that enables processing of literal visual and sound data for quality comparison and judgment, beyond simple tagging or transcription.
 

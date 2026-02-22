@@ -704,7 +704,7 @@
 
 *Decisions are final unless marked [REVISIT]*
 
-*Last updated: 2026-02-22 Evening*
+*Last updated: 2026-02-22 Evening-2*
 
 ---
 
@@ -749,6 +749,60 @@
 **Context:** R013 reliable deployment process
 **Alternatives:** Linear script, fewer states, no state tracking
 **Rationale:** Clear error handling at each stage; supports both fresh install and upgrade; restart resilience
+
+---
+
+## R009 Refinements (2026-02-22 Evening-2)
+
+### ComfyUI Error Classification
+**Decision:** 4-tier error handling (Transient/Resource/Workflow/System) with differentiated strategies
+**Context:** R009 robust ComfyUI integration
+**Alternatives:** Binary retry/no-retry, all errors same, no classification
+**Rationale:** Appropriate handling per error type; transient errors auto-retry; system errors escalate to Doctor
+
+### Job Queue Priority System
+**Decision:** 3-tier priority queue (P0 Critical/P1 Normal/P2 Low) with resource-aware scheduling
+**Context:** R009 managing multiple generation requests
+**Alternatives:** FIFO only, single priority, no queue
+**Rationale:** Interactive tasks get priority; fair resource allocation; job persistence across restarts
+
+---
+
+## R015 Refinements (2026-02-22 Evening-2)
+
+### Script-NXS Communication Protocol
+**Decision:** Bidirectional communication via event bus with structured result contracts
+**Context:** R015 script integration with NXS core
+**Alternatives:** Direct library calls, HTTP API, file-based communication
+**Rationale:** Decoupled architecture; audit trail; supports both request-response and pub/sub patterns
+
+### Script Result Contract
+**Decision:** Standardized YAML result format with status, output, error, metrics, and audit fields
+**Context:** R015 consistent script output handling
+**Alternatives:** Exit codes only, unstructured logging, no standard
+**Rationale:** Rich error context enables intelligent response; performance metrics for optimization; audit trail for security
+
+---
+
+## R017 Refinements (2026-02-22 Evening-2)
+
+### NAB-1K Benchmark Specification
+**Decision:** 1000 images across 10 categories with 5-annotator ratings and target correlation thresholds
+**Context:** R017 standardized visual aesthetic evaluation
+**Alternatives:** Smaller dataset, single annotator, existing benchmarks only
+**Rationale:** Sufficient size for statistical significance; multi-annotator reduces individual bias; targets ensure quality
+
+### Human Calibration Protocol
+**Decision:** 4-phase calibration (Training/Calibration/Review/Validation) with drift detection
+**Context:** R017 maintaining consistent human judgments over time
+**Alternatives:** No calibration, one-time training, no monitoring
+**Rationale:** Consistent ratings enable reliable ground truth; drift detection catches annotator fatigue or changing standards
+
+### VAB-500 Voice Benchmark
+**Decision:** 500 voice samples across TTS/human/clone sources with 5-dimension scoring
+**Context:** R017 standardized voice aesthetic evaluation
+**Alternatives:** Reuse visual benchmark, smaller dataset, fewer dimensions
+**Rationale:** Voice has different quality dimensions than images; dedicated benchmark enables targeted improvements
 
 ---
 

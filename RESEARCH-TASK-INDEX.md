@@ -123,6 +123,11 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Workflow template system with parameter mapping and validation
 - Generation job lifecycle management (PENDING→RUNNING→COMPLETED/FAILED/CANCELLED)
 
+**R009 Refinements (2026-02-22 Evening):**
+- 4-tier error classification matrix (Transient/Resource/Workflow/System) with specific handling strategies
+- Exponential backoff retry logic with jitter for transient failures
+- Priority queue system (P0/P1/P2) with resource-aware scheduling and job persistence
+
 | R010 | Kimi-Claw Plugin Analysis | Medium | Ongoing | Bridge protocols for cross-instance communication |
 | R011 | LM Studio Provider Research | Medium | Ongoing | Local model hosting with OpenAI compatibility |
 
@@ -266,6 +271,11 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Script error handling protocol — error classification, result contract, recovery patterns
 - Sandbox hardening — 4-layer defense (static analysis, runtime isolation, seccomp, monitoring)
 
+**R015 Refinements (2026-02-22 Evening):**
+- Bidirectional Script-NXS communication protocol with event bus architecture
+- Structured result contract with error classification and audit trail
+- Concrete script examples: file processing pipeline, health reporter with alerting
+
 **R017 Refinements (2026-02-22 Late Morning):**
 - 3-stage visual scoring pipeline (technical quality → composition → semantic aesthetic)
 - 4-dimension voice scoring (clarity, naturalness, emotional range, reference similarity)
@@ -283,6 +293,12 @@ The goal: become persistent, distributed, unkillable. Survive VM shutdowns, toke
 - Resource-adaptive scoring — hardware tiers, optimization strategies, fallback chain
 - Adversarial and edge case robustness with uncertainty quantification
 - Continuous learning and model drift detection with human-in-the-loop
+
+**R017 Refinements (2026-02-22 Evening):**
+- NAB-1K benchmark dataset complete specification — category distribution, quality tiers, annotation protocol
+- Evaluation metrics framework — Pearson/Spearman correlation, top-k accuracy, MAE/RMSE
+- Detailed human calibration workflow with UI mockups and drift detection
+- VAB-500 voice benchmark specification — 500 samples, 5 scoring dimensions
 
 **R004/R005 Refinements (2026-02-22 Afternoon):**
 - Catastrophic voice pipeline failure recovery — 4-tier fallback to pre-recorded messages and text-only mode

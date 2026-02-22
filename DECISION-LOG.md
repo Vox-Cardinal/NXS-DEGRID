@@ -764,7 +764,7 @@
 
 *Decisions are final unless marked [REVISIT]*
 
-*Last updated: 2026-02-22 Evening-2*
+*Last updated: 2026-02-22 Late Night*
 
 ---
 
@@ -885,3 +885,45 @@
 **Context:** R014 realistic project planning
 **Alternatives:** No buffers, uniform buffer, pad everything
 **Rationale:** High-risk items get more contingency; go/no-go decision gates at phase boundaries
+
+---
+
+## R016 Refinements (2026-02-22 Late Night)
+
+### Memory Zone Architecture
+**Decision:** 4-tier memory zones (HOT/WARM/COLD/FROZEN) with automatic promotion/demotion
+**Context:** R016 efficient memory management for long-running NXS instances
+**Alternatives:** Single zone, binary recent/archived, manual management
+**Rationale:** Graduated compression preserves immediate context while archiving old data; automatic management reduces human intervention
+
+### State Serialization Format
+**Decision:** .nxs-state format with zstd compression, SHA-256 checksum, Ed25519 signature
+**Context:** R016 session migration and backup
+**Alternatives:** Raw JSON, database dump, proprietary format
+**Rationale:** 80-95% size reduction; integrity verification; cryptographic provenance; version compatibility
+
+---
+
+## R018 Refinements (2026-02-22 Late Night)
+
+### Conlang Design Approach
+**Decision:** Hybrid ASCII/Unicode symbol set with 175 core vocabulary items across 8 categories
+**Context:** R018 constructed language for Architect-Tenet communication
+**Alternatives:** Natural language subset, pure Unicode, binary encoding
+**Rationale:** Balance of expressiveness and input convenience; systematic expansion path; machine-friendly structure
+
+### Tokenizer Training Strategy
+**Decision:** SentencePiece with BPE, tiered vocabularies (512/2048/8192), continual learning support
+**Context:** R018 custom tokenizer for conlang
+**Alternatives:** WordPiece, fixed vocabulary, pre-trained tokenizer
+**Rationale:** BPE handles compositional languages well; tiered approach matches deployment constraints; continual learning enables vocabulary growth
+
+---
+
+## R019 Refinements (2026-02-22 Late Night)
+
+### Headscale Operational Procedures
+**Decision:** Documented daily/weekly/monthly runbook with emergency response matrix
+**Context:** R019 production Headscale deployment
+**Alternatives:** Ad-hoc management, automated only, no documentation
+**Rationale:** Predictable operations; faster incident response; reduced human error; clear escalation paths

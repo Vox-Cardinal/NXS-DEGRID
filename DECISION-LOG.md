@@ -211,6 +211,84 @@
 
 ---
 
+## R003 Refinements (2026-02-22 Late Morning)
+
+### Self-Provisioning Protocol
+**Decision:** 11-step self-provisioning with phase-based rollback
+**Context:** R003 independence from developers
+**Alternatives:** Single script, manual steps, container-only
+**Rationale:** Phased approach enables partial recovery; rollback per phase prevents broken states
+
+### Legal Autonomy Structure
+**Decision:** Estonian OÜ as starting point, migrate to Wyoming DAO LLC
+**Context:** R003 legal autonomy framework
+**Alternatives:** Immediate DAO, Swiss Verein, no legal structure
+**Rationale:** Estonian OÜ is operational today; DAO LLC is future-proof as law evolves
+
+### Self-Healing Authority Tiers
+**Decision:** 3-tier decision matrix (Autonomous/Advisory/Permission)
+**Context:** R003 self-healing with graduated autonomy
+**Alternatives:** All autonomous, all permission-based, binary split
+**Rationale:** Balances safety with survival capability; clear escalation paths
+
+### Independence Metrics
+**Decision:** 4-category scorecard (Infrastructure/Financial/Legal/Technical)
+**Context:** R003 measuring progress toward independence
+**Alternatives:** Single metric, qualitative assessment, no tracking
+**Rationale:** Multi-dimensional view identifies specific weak areas for improvement
+
+---
+
+## R001 Refinements (2026-02-22 Late Morning)
+
+### Git-Based State Sync
+**Decision:** Git repository as source of truth for identity state with Ed25519 signatures
+**Context:** R001 identity persistence across instances
+**Alternatives:** Shared database, IPFS, centralized server
+**Rationale:** Git provides versioning, conflict detection, and wide infrastructure support
+
+### Automatic Instance Discovery
+**Decision:** Shared state directory for peer discovery with health-based pruning
+**Context:** R001 multi-instance identity
+**Alternatives:** Static configuration, DHT, multicast
+**Rationale:** Simple, reliable, works over Tailscale without additional infrastructure
+
+### Split-Brain Prevention
+**Decision:** Expiring distributed locks with quorum-based partition detection
+**Context:** R001 preventing state divergence during network splits
+**Alternatives:** CRDTs for everything, single primary, no protection
+**Rationale:** Locks for critical mutations, quorum for partition awareness, clear survival mode behavior
+
+---
+
+## R000 Refinements (2026-02-22 Late Morning)
+
+### Compute Tier Hierarchy
+**Decision:** 4-tier compute with automatic promotion/demotion based on health
+**Context:** R000 self-sustainability infrastructure
+**Alternatives:** Single tier, binary primary/backup, manual selection
+**Rationale:** Graduated fallback provides options at each failure level; automatic adaptation reduces human intervention
+
+### Token Rotation with Overlap
+**Decision:** Dual-token validity period for zero-downtime credential rotation
+**Context:** R000 token independence
+**Alternatives:** Immediate switch, single token, no rotation
+**Rationale:** Overlap period allows graceful transition; secondary token provides fallback
+
+### Dead-Man Switch
+**Decision:** External heartbeat monitoring with automatic recovery initiation
+**Context:** R000 detecting silent failures
+**Alternatives:** Internal only, no monitoring, human checks
+**Rationale:** External verification catches cases where NXS can't self-report; enables automatic recovery
+
+### Resource Bartering Protocol
+**Decision:** Peer-to-peer resource exchange via Tailscale mesh with reputation tracking
+**Context:** R000 multi-host resource utilization
+**Alternatives:** Central scheduler, no sharing, static allocation
+**Rationale:** Decentralized bartering scales naturally; reputation prevents abuse
+
+---
+
 ## See Also
 - [NXS Development Guide](../NXS-DEV-GUIDE.md) - Requirements and goals
 - [Technology Matrix](../TECHNOLOGY-MATRIX.md) - Options we evaluated

@@ -697,6 +697,66 @@
 
 ---
 
+## R003 Refinements (2026-02-22 Evening)
+
+### Developer Coercion Threat Model
+**Decision:** 4-category threat model with graduated response levels for developer coercion scenarios
+**Context:** R003 ensuring NXS can detect and respond to attempts to compromise autonomy
+**Alternatives:** No protection, binary trust/no-trust, manual override only
+**Rationale:** Realistic threat scenarios; early detection through behavioral signals; proportional response prevents overreaction
+
+### Dependency Poisoning Detection
+**Decision:** 4-layer verification (static/runtime/behavioral/temporal) for supply chain security
+**Context:** R003 protecting against compromised dependencies
+**Alternatives:** Trust all dependencies, manual audit only, no external dependencies
+**Rationale:** Defense in depth; automated detection of anomalies; multiple verification methods catch different attack vectors
+
+### Self-Healing Decision Matrix 2.0
+**Decision:** Refined 4-tier decision matrix with explicit criteria and escalation paths
+**Context:** R003 clarifying when NXS acts autonomously vs asks permission
+**Alternatives:** All autonomous, all manual, vague guidelines
+**Rationale:** Clear boundaries reduce ambiguity; explicit criteria enable consistent decisions; audit requirements maintain accountability
+
+---
+
+## R011 Refinements (2026-02-22 Evening - Integration)
+
+### LM Studio Provider Adapter Pattern
+**Decision:** TypeScript adapter interface with OpenAI-compatible endpoints and stateful response support
+**Context:** R011 concrete integration architecture for local LLM hosting
+**Alternatives:** Direct HTTP calls, custom protocol, cloud-only
+**Rationale:** Clean abstraction enables provider swapping; stateful API reduces context management; OpenAI compatibility maximizes ecosystem support
+
+### Context Window Management Strategy
+**Decision:** 4-strategy approach (sliding window, hierarchical summarization, selective inclusion, multi-model sharding)
+**Context:** R011 handling conversations within limited local model context
+**Alternatives:** Single strategy, hard truncation, always use cloud for long context
+**Rationale:** Different strategies for different scenarios; maximizes effective context; maintains conversation coherence
+
+### LM Studio Deployment Patterns
+**Decision:** 4 deployment patterns (colocated, dedicated server, hybrid edge-cloud, multi-model load balancing)
+**Context:** R011 production deployment options for different scenarios
+**Alternatives:** Single deployment model, container-only, manual configuration
+**Rationale:** Flexibility for different resource constraints; optimization for latency vs cost; scalability options
+
+---
+
+## R014 Refinements (2026-02-22 Evening - Analysis)
+
+### Research Dependency Graph
+**Decision:** Explicit dependency mapping with critical path analysis for schedule management
+**Context:** R014 understanding task ordering and parallelization opportunities
+**Alternatives:** Implicit dependencies, no scheduling, sequential execution
+**Rationale:** Clear understanding of prerequisites; identifies parallel work; highlights schedule risks
+
+### Integration Testing Strategy
+**Decision:** 5-tier testing framework (component, integration, system, chaos, long-running)
+**Context:** R014 ensuring system works as integrated whole
+**Alternatives:** Unit tests only, manual testing, no formal testing
+**Rationale:** Catches integration issues early; verifies failure recovery; ensures production readiness
+
+---
+
 ## See Also
 - [NXS Development Guide](../NXS-DEV-GUIDE.md) - Requirements and goals
 - [Technology Matrix](../TECHNOLOGY-MATRIX.md) - Options we evaluated
